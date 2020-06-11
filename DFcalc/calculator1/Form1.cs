@@ -11,6 +11,7 @@ namespace calculator1
         char operation;
         double result = 0.0;
 
+
         public Form1()
         {
             InitializeComponent();
@@ -92,13 +93,18 @@ namespace calculator1
         {
             operand1 = input;
             operation = '+';
+            result = calc.Parse(operand1 + operation + result);
+            operand1 = textBox1.Text = result.ToString();
             input = string.Empty;
+
         }
 
         private void button12_Click(object sender, EventArgs e)
         {
             operand1 = input;
             operation = '-';
+ //           result = calc.Parse(result + operation + operand1);
+ //           operand1 = textBox1.Text = result.ToString();
             input = string.Empty;
         }
 
@@ -106,6 +112,8 @@ namespace calculator1
         {
             operand1 = input;
             operation = '*';
+ //            result = calc.Parse(operand1 + operation + result);
+ //           operand1 = textBox1.Text = result.ToString();
             input = string.Empty;
         }
 
@@ -130,50 +138,34 @@ namespace calculator1
             input += ".";
             this.textBox1.Text += input;
         }
-
+// = button
         private void button16_Click(object sender, EventArgs e)
         {
             operand2 = input;
-            double num1, num2;
-            double.TryParse(operand1, out num1);
-            double.TryParse(operand2, out num2);
-
-            this.textBox1.Text = "";
+            //           double num1, num2;
+            //           double.TryParse(operand1, out num1);
+            //           double.TryParse(operand2, out num2);
+            result = calc.Parse(operand1 + operation + operand2);
+            textBox1.Text = result.ToString();
+//            this.textBox1.Text = "";
             this.input = string.Empty;
             this.operand1 = string.Empty;
             this.operand2 = string.Empty;
+            result = 0;
 
-            if (operation == '+')
-            {
-                result = num1 + num2;
-                textBox1.Text = result.ToString();
-            }
-            else if (operation == '-')
-            {
-                result = num1 - num2;
-                textBox1.Text = result.ToString();
-            }
-            else if (operation == '*')
-            {
-                result = num1 * num2;
-                textBox1.Text = result.ToString();
-            }
-            else if (operation == '/')
-            {
-                if (num2 != 0)
-                {
-                    result = num1 / num2;
-                    textBox1.Text = result.ToString();
-                }
-                else
-                {
-                    textBox1.Text = "DIV/Zero!";
-                }
-
-            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void num_button_Click(object sender, EventArgs e)
         {
 
         }
